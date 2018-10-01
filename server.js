@@ -27,16 +27,16 @@ app.get('/product', function (req, res) {
     if (id) {
         sql += ' where id =' + id;
     }
-        db.any(sql)
-            .then(function (data) {
-                console.log('DATA' + data);
-                res.render('pages/products', { products: data })
+    db.any(sql)
+        .then(function (data) {
+            console.log('DATA' + data);
+            res.render('pages/products', { products: data })
 
-            })
-            .catch(function (error) {
-                console.log('ERROR:' + error);
-            })
-    
+        })
+        .catch(function (error) {
+            console.log('ERROR:' + error);
+        })
+
 });
 
 app.get('/product/:pid', function (req, res) {
@@ -44,19 +44,19 @@ app.get('/product/:pid', function (req, res) {
     var sql = "select * from products where id=" + pid;
     db.any(sql)
         .then(function (data) {
-        res.render('pages/product_edit', { products: data[0] })
+            res.render('pages/product_edit', { products: data[0] })
 
-    })
-    .catch(function (error) {
-        console.log('ERROR:' + error);
-    })
-    
+        })
+        .catch(function (error) {
+            console.log('ERROR:' + error);
+        })
+
 });
 
 app.get('/user/:id', function (req, res) {
     var id = req.params.id;
     var sql = 'select * from users';
-    if (id){
+    if (id) {
         sql += ' where id =' + id;
     }
     db.any(sql)
@@ -88,9 +88,11 @@ app.post('/product/update', function (req, res) {
     var price = req.body.price;
     var sql = `update pproduct set title = $(title), price = $(price) where id = (id)`;
     // db.none
-    console.log('UPDATE:'+sql);
+    console.log('UPDATE:' + sql);
     res.redirect('/product');
 });
- 
-console.log('App is running at http://localhost:8080');
-app.listen(8080);
+
+var port = process.env.PORT || 8080;
+app.listen(port, function () {
+    console.log('App is running on http://localhost:' + port);
+});
