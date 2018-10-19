@@ -4,6 +4,7 @@ var pgp = require('pg-promise')();
 var db = pgp('postgres://qczukjeduvghfj:49481b3ac8202f5c86c019f58e76bc22d2697ea6dcc4119eff455d5f00382fbe@ec2-54-243-147-162.compute-1.amazonaws.com:5432/dcdqtmras1p2b8?ssl=true');
 var app = express();
 var bodyParser = require('body-parser');
+var moment = require('moment');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -91,6 +92,27 @@ app.post('/product/update', function (req, res) {
     // db.none
     console.log('UPDATE:' + sql);
     res.redirect('/product');
+});
+
+app.post('/product/insert', function (req, res){
+    var id = req.body.id;
+    var title = req.body.title;
+    var price = req.body.price;
+    var sql = `INSERT INTO products (id,title,price) VALUES  ('${id}','${title}','${price}')`;
+    db.query(sql)
+        .then(function (data) {
+            response.redirect('/products')
+
+        })
+        .catch(function (data) {
+            console.log('ERROR:' + console.error);
+
+        })
+});
+
+app.get('/insert', function (req, res) {
+    var time = moment().format('MMMM Do YYYY, h:mm:ss a');
+    response.render('pages/insert', { time: time});
 });
 
 var port = process.env.PORT || 8080;
