@@ -99,7 +99,7 @@ app.post('/product/insert', function (req, res){
     var title = req.body.title;
     var price = req.body.price;
     var sql = `INSERT INTO products (id,title,price) VALUES  ('${id}','${title}','${price}')`;
-    db.query(sql)
+    db.any(sql)
         .then(function (data) {
             response.redirect('/products')
 
@@ -112,7 +112,7 @@ app.post('/product/insert', function (req, res){
 
 app.get('/insert', function (req, res) {
     var time = moment().format('MMMM Do YYYY, h:mm:ss a');
-    response.render('pages/insert', { time: time});
+    res.render('pages/insert', { time: time});
 });
 
 var port = process.env.PORT || 8080;
