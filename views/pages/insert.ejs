@@ -1,5 +1,5 @@
 <% include ../partials/header %>
-<form action="/product/insert" method="post">
+<form action="/products/insert" method="post">
 
 <div class="form-group">
   <label for="">ID"</label>
@@ -27,10 +27,10 @@
         <input type="text"
           class="form-control" value="<%= time %>"name="price" id="" aria-describedby="helpId" placeholder="" disabled>
         <small id="helpId" class="form-text text-muted">Price</small>
-      </div>
-           
-  <button type="submit" class="btn btn-secondary">Save</button>
+      
 </div>
+  <button type="submit" class="btn btn-secondary">Save</button>
+
 
 <form>
 <% include ../partials/footer %>
