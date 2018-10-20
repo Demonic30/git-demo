@@ -99,10 +99,10 @@ app.post('/product/insert', function (req, res){
     var title = req.body.title;
     var price = req.body.price;
     var sql = `INSERT INTO products (id,title,price) VALUES  ('${id}','${title}','${price}')`;
-    console.log('UPDATE:' + sql);
+    
     db.any(sql)
         .then(function (data) {
-            console.log('DATA:' + data);
+            
             response.redirect('/products')
 
         })
