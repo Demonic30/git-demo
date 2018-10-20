@@ -92,7 +92,7 @@ app.post('/products/update', function (req, res) {
     var sql = `update pproduct set title = $(title), price = $(price) where id = (id)`;
     // db.none
     console.log('UPDATE:' + sql);
-    res.redirect('/product');
+    res.redirect('/products');
 });
 
 app.post('/products/insert', function (req, res){
@@ -100,8 +100,8 @@ app.post('/products/insert', function (req, res){
     var title = req.body.title;
     var time = req.body.time;
     var price = req.body.price;
-    
-    var sql = `INSERT INTO products (id,title,price,created_at) VALUES  ('${id}','${title}','${price}','${time}')`;
+
+    var sql = `INSERT INTO products (id,title,price,created_at) VALUES ('${id}','${title}','${price}','${time}')`;
     console.log('UPDATE:' + sql);
     db.any(sql)
         .then(function (data) {
@@ -118,7 +118,7 @@ app.post('/products/insert', function (req, res){
 
 app.get('/insert', function (req, res) {
     var time = moment().format();
-    res.render('pages/insert', { time: time });
+    res.render('pages/insert', { time:time});
 });
 
 app.get('/product_delete/:pid',function (req, res) {
