@@ -43,7 +43,7 @@ app.get('/products', function (req, res) {
 
 app.get('/products/:pid', function (req, res) {
     var pid = req.params.pid;
-    var time = moment().format();
+    var time = moment().format('MMMM Do YYYY, h:mm:ss a');
     var sql = "select * from products where id=" + pid;
     db.any(sql)
         .then(function (data) {
@@ -107,8 +107,10 @@ app.post('/products/update',function (req, res) {
 app.post('/products/insert', function (req, res){
     var id = req.body.id;
     var title = req.body.title;
+    var time = req.body.time;
     var price = req.body.price;
-    var sql = `INSERT INTO products (id,title,price) VALUES ('${id}','${title}','${price}')`;
+
+    var sql = `INSERT INTO products (id,title,price,created_at) VALUES ('${id}','${title}','${price}','${time}')`;
     console.log('UPDATE:' + sql);
     db.any(sql)
         .then(function (data) {
