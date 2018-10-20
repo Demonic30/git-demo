@@ -85,15 +85,24 @@ app.get('/user', function (req, res) {
         })
 });
 // Update data
-app.post('/products/update', function (req, res) {
-    var id = req.body.id;
-    var title = req.body.title;
-    var price = req.body.price;
-    var sql = `update products set title = $(title), price = $(price) where id = (id)`;
-    // db.none
-    console.log('UPDATE:' + sql);
-    res.redirect('/products');
-});
+app.post('/products/update',function (req, res) {
+    var id =req.body.id;
+    var title =req.body.title;
+    var price =req.body.price;
+    var time =req.body.time;
+    var sql=`update products set title='${title}',price='${price}',time='${time}' where id='${id}'`;
+    // res.send(sql)
+    //db.none
+    db.any(sql)
+            .then(function (data) {
+                console.log('DATA:' + data);
+                res.redirect('/products')
+            })
+    
+            .catch(function (error) {
+                console.log('ERROR:' + error);
+            })
+    })
 
 app.post('/products/insert', function (req, res){
     var id = req.body.id;
