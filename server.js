@@ -107,10 +107,8 @@ app.post('/products/update',function (req, res) {
 app.post('/products/insert', function (req, res){
     var id = req.body.id;
     var title = req.body.title;
-    var time = req.body.time;
     var price = req.body.price;
-
-    var sql = `INSERT INTO products (id,title,price,created_at) VALUES ('${id}','${title}','${price}','${time}')`;
+    var sql = `INSERT INTO products (id,title,price) VALUES ('${id}','${title}','${price}')`;
     console.log('UPDATE:' + sql);
     db.any(sql)
         .then(function (data) {
