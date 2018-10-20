@@ -115,7 +115,7 @@ app.post('/products/insert', function (req, res){
 });
 
 app.get('/insert', function (req, res) {
-    var time = moment().format('MMMM Do YYYY, h:mm:ss a');
+    var time = moment().format();
     res.render('pages/insert', { time: time});
 });
 
