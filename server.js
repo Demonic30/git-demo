@@ -134,7 +134,7 @@ app.get('/users/:id', function (req, res) {
         })
 });
 
-app.get('/users', function (req, res) {
+app.get('/user', function (req, res) {
         var id = req.param('id');
     var sql = 'select * from users';
     if (id) {
@@ -162,7 +162,7 @@ app.post('/users/update',function (req, res) {
     db.any(sql)
             .then(function (data) {
                 console.log('DATA:' + data);
-                res.redirect('/users')
+                res.redirect('/user')
             })
     
             .catch(function (error) {
