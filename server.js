@@ -214,6 +214,20 @@ app.get('/user_delete/:pid',function (req, res) {
     })
  });
 
+ app.get('/product_report', function(req, res) {
+    var sql ='SELECT products.id,products.title,products.price,products.tags,sum(purchase_items.quantity) as quantity,sum(purchase_items.price) as price FROM products,purchase_items where products.id=purchase_items.product_id group by products.id order by products.id ASC;select sum(quantity) as squantity,sum(price) as sprice from purchase_items';
+    db.multi(sql)
+    .then(function  (data) 
+    {
+        // console.log('DATA' + data);
+        res.render('pages/product_report', { product: data[0],sum: data[1]});
+    })
+    .catch(function (data) 
+    {
+        console.log('ERROR' + error);
+    })
+});
+
 var port = process.env.PORT || 8080;
 app.listen(port, function () {
     console.log('App is running on http://localhost:' + port);
