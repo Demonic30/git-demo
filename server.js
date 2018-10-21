@@ -134,7 +134,7 @@ app.get('/users/:id', function (req, res) {
         })
 });
 
-app.get('/user', function (req, res) {
+app.get('/users', function (req, res) {
         var id = req.param('id');
     var sql = 'select * from users';
     if (id) {
@@ -162,13 +162,39 @@ app.post('/users/update',function (req, res) {
     db.any(sql)
             .then(function (data) {
                 console.log('DATA:' + data);
-                res.redirect('/user')
+                res.redirect('/users')
             })
     
             .catch(function (error) {
                 console.log('ERROR:' + error);
             })
-    })
+});
+
+app.post('/users/insert', function (req, res){
+    var id =req.body.id;
+    var email =req.body.email;
+    var password =req.body.password;
+    var time = req.body.time;
+
+    var sql = `INSERT INTO products (id,email,password,created_at) VALUES ('${id}','${email}','${password}','${time}')`;
+    console.log('UPDATE:' + sql);
+    db.any(sql)
+        .then(function (data) {
+            console.log('DATA:' + data);
+            
+            res.redirect('/users')
+
+        })
+        .catch(function (data) {
+            console.log('ERROR:' + error);
+
+        })
+});
+
+app.get('/insert_user', function (req, res) {
+    var time = moment().format();
+    res.render('pages/insert_user', { time:time});
+})
 
 
 var port = process.env.PORT || 8080;
