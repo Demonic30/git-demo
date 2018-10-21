@@ -119,7 +119,7 @@ app.get('/product_delete/:pid',function (req, res) {
     })
  });
 
-app.get('/user/:id', function (req, res) {
+app.get('/users/:id', function (req, res) {
     var id = req.params.id;
     var time = moment().format('MMMM Do YYYY, h:mm:ss a');
     var sql = "select * from users where id=" + id;
@@ -134,7 +134,7 @@ app.get('/user/:id', function (req, res) {
         })
 });
 
-app.get('/user', function (req, res) {
+app.get('/users', function (req, res) {
         var id = req.param('id');
     var sql = 'select * from users';
     if (id) {
