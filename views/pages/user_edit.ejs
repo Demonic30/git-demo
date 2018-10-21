@@ -4,29 +4,29 @@
 <div class="form-group">
   <label for="">ID"</label>
   <input type="number"
-    class="form-control" value="<%= products.id %>" name="id" id="" aria-describedby="helpId" placeholder="">
-  <small id="helpId" class="form-text text-muted">Product ID</small>
+    class="form-control" value="<%= users.id %>" name="id" id="" aria-describedby="helpId" placeholder="">
+  <small id="helpId" class="form-text text-muted">USER ID</small>
 </div>
 
 <div class="form-group">
-  <label for="">Title</label>
+  <label for="">Email</label>
   <input type="text"
-    class="form-control" value="<%= products.title %>" name="title" id="" aria-describedby="helpId" placeholder="">
-  <small id="helpId" class="form-text text-muted">Product Title</small>
+    class="form-control" value="<%= user.email %>" name="email" id="" aria-describedby="helpId" placeholder="">
+  <small id="helpId" class="form-text text-muted">USER Email</small>
 </div>
 
 <div class="form-group">
-  <label for="">Price</label>
+  <label for="">Password</label>
   <input type="number"
-    class="form-control" value="<%= products.price %>" name="price" id="" aria-describedby="helpId" placeholder="">
-  <small id="helpId" class="form-text text-muted">Product Price</small>
+    class="form-control" value="<%= users.password %>" name="password" id="" aria-describedby="helpId" placeholder="">
+  <small id="helpId" class="form-text text-muted">USER Password</small>
 </div>
 
 <div class="form-group">
-        <label for="">Time</label>
+        <label for="">Created_at</label>
         <input type="text"
           class="form-control" value="<%= time %>"name="time" id="" aria-describedby="helpId" placeholder="" >
-        <small id="helpId" class="form-text text-muted">time</small>
+        <small id="helpId" class="form-text text-muted">Created_at</small>
 </div>
 
 <button type="submit" class="btn btn-success">Submit</button>
