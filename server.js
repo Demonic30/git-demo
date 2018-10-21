@@ -18,7 +18,7 @@ app.get('/', function (req, res) {
 app.get('/about', function (req, res) {
     var name = 'Coffaree Hahza';
     var hobbies = ['Music', 'Movie', 'Programming'];
-    var bdate = '19/05/1997';
+    var bdate = 'Koffareza007@gmail.com';
     res.render('pages/about', { fullname: name, hobbies: hobbies, bdate: bdate });
 });
 
