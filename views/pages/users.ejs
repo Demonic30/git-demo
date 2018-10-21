@@ -24,7 +24,7 @@
             <a class="btn btn-warning" href="/users/<%= user.id%>" role="button">Edit</a>
             </td>
             <td>
-            <a class="btn btn-danger" href="" role="button">Delete</a>
+            <a class="btn btn-danger" href="/user_delete/<%= user.id%>" onclick="return confirm('Are You Sure you want to Delete ? Please Confirm this')" role="button">Delete</a>
             </td>
         </tr>
         <% }); %>
