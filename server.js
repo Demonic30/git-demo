@@ -56,34 +56,6 @@ app.get('/products/:pid', function (req, res) {
 
 });
 
-app.get('/user/:id', function (req, res) {
-    var id = req.params.id;
-    var sql = 'select * from users';
-    if (id) {
-        sql += ' where id =' + id;
-    }
-    db.any(sql)
-        .then(function (data) {
-            console.log('DATA' + data);
-            res.render('pages/users', { users: data })
-
-        })
-        .catch(function (error) {
-            console.log('ERROR:' + error);
-        })
-});
-
-app.get('/user', function (req, res) {
-    db.any('select * from users', )
-        .then(function (data) {
-            console.log('DATA' + data);
-            res.render('pages/users', { users: data })
-
-        })
-        .catch(function (error) {
-            console.log('ERROR:' + error);
-        })
-});
 // Update data
 app.post('/products/update',function (req, res) {
     var id =req.body.id;
@@ -146,6 +118,36 @@ app.get('/product_delete/:pid',function (req, res) {
                 
     })
  });
+
+app.get('/user/:id', function (req, res) {
+    var id = req.params.id;
+    var sql = 'select * from users';
+    if (id) {
+        sql += ' where id =' + id;
+    }
+    db.any(sql)
+        .then(function (data) {
+            console.log('DATA' + data);
+            res.render('pages/users', { users: data })
+
+        })
+        .catch(function (error) {
+            console.log('ERROR:' + error);
+        })
+});
+
+app.get('/user', function (req, res) {
+    db.any('select * from users', )
+        .then(function (data) {
+            console.log('DATA' + data);
+            res.render('pages/users', { users: data })
+
+        })
+        .catch(function (error) {
+            console.log('ERROR:' + error);
+        })
+});
+
 
 var port = process.env.PORT || 8080;
 app.listen(port, function () {
