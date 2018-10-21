@@ -148,6 +148,25 @@ app.get('/user', function (req, res) {
         })
 });
 
+// Update data
+app.post('/users/update',function (req, res) {
+    var id =req.body.id;
+    var email =req.body.email;
+    var password =req.body.password;
+    var sql=`update users set email='${email}',password='${password}' where id='${id}'`;
+    // res.send(sql)
+    //db.none
+    db.any(sql)
+            .then(function (data) {
+                console.log('DATA:' + data);
+                res.redirect('/users')
+            })
+    
+            .catch(function (error) {
+                console.log('ERROR:' + error);
+            })
+    })
+
 
 var port = process.env.PORT || 8080;
 app.listen(port, function () {
