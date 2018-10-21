@@ -170,7 +170,7 @@ app.post('/users/update',function (req, res) {
             })
 });
 
-app.post('/users/insert', function (req, res){
+app.post('/users/insert_user', function (req, res){
     var id =req.body.id;
     var email =req.body.email;
     var password =req.body.password;
