@@ -1,5 +1,7 @@
 <% include ../partials/header %>
 <form action="/users/update" method="post">
+<div class="jumbotron bg-link"> 
+<h1 class="display-3">USER EDIT</h1>
 
 <div class="form-group">
   <label for="">ID"</label>
@@ -17,7 +19,7 @@
 
 <div class="form-group">
   <label for="">Password</label>
-  <input type="text"
+  <input type="password"
     class="form-control" value="<%= users.password %>" name="password" id="" aria-describedby="helpId" placeholder="">
   <small id="helpId" class="form-text text-muted">USER Password</small>
 </div>
@@ -29,8 +31,10 @@
         <small id="helpId" class="form-text text-muted">Created_at</small>
 </div>
 
+
 <button type="submit" class="btn btn-success">Submit</button>
 
 <a name="" id="" class="btn btn-primary" href="/users" role="button">Cancel</a>
+<div>
 <form>
 <% include ../partials/footer %>
