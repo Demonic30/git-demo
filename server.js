@@ -103,7 +103,7 @@ app.get('/insert', function (req, res) {
 
 app.get('/product_delete/:pid',function (req, res) {
     var id = req.params.pid;
-    var sql = 'DELETE FROM products';
+    var sql = 'DELETE FROM products ';
     if (id){
             sql += ' where id ='+ id;
     }

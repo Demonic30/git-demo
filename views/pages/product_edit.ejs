@@ -30,13 +30,14 @@
           class="form-control" value="<%= time %>"name="time" id="" aria-describedby="helpId" placeholder="" >
         <small id="helpId" class="form-text text-muted">time</small>
 </div>
-<div class="container">
+<div class="text-center">
 <button type="submit" class="btn btn-success">Submit</button>
-
+<a class="btn btn-danger" href="/product_delete/<%=products.id %>" onclick="return confirm('Are You Sure you want to Delete ? Please Confirm this')" role="button">Delete</a>
 <a name="" id="" class="btn btn-primary" href="/products" role="button">Cancel</a>
 </div>
 
-
 <form>
-<div>
+
+</div>
+
 <% include ../partials/footer %>
