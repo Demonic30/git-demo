@@ -16,10 +16,10 @@
     <tbody id="myTable">
     <% user.forEach(function(user) { %>
         <tr>
-            <td scope="row"><%= user.user_id %></td>
-            <td><%= user.name %></td>
-            <td><%= user.email %></td>
-            <td>$<%= user.price %></td>
+            <td scope="row"><font color="green"><%= user.user_id %></font></td>
+            <td><font color="green"><%= user.name %></font></td>
+            <td><font color="green"><%= user.email %></font></td>
+            <td><font color="green">$<%= user.price %></font></td>
         </tr>
         <% }); %>
     </tbody>
