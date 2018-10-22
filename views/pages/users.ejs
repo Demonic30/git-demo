@@ -1,16 +1,14 @@
 <% include ../partials/header %>
 <br>
 <div class="jumbotron bg-link "> 
-<h1 class="display-3 text-center">USERS LISTS</h1>  
+<h1 class="display-5 text-center">USERS LISTS</h1>  
 <br>
 <table class="table">
-    <thead>
-        <tr class="bg-info">
+    <thead class="bg-info">
+        <tr>
             <th>Users ID</th>
             <th>Email</th>
             <th>Password</th>
-            <th>Edit</th>
-            <th>Delete</th>
             <th> <a class="btn btn-success" href="/insert_user" role="button">Insert</a></th>
         </tr>
     </thead>
@@ -22,9 +20,6 @@
             <td><%= user.password %></td>
             <td>
             <a class="btn btn-warning" href="/users/<%= user.id%>" role="button">Edit</a>
-            </td>
-            <td>
-            <a class="btn btn-danger" href="/user_delete/<%= user.id%>" onclick="return confirm('Are You Sure you want to Delete ? Please Confirm this')" role="button">Delete</a>
             </td>
         </tr>
         <% }); %>

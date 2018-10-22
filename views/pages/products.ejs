@@ -1,17 +1,15 @@
 <% include ../partials/header %>
 <br>
 <div class="jumbotron bg-link "> 
-<h1 class="display-3 text-center">PRODUCTS LISTS</h1>
+<h1 class="display-5 text-center">PRODUCTS LISTS</h1>
 <br>
 <table class="table ">
-    <thead>
-        <tr class="bg-info">
+    <thead class="bg-info">
+        <tr>
             <th>ID</th>
             <th>Title</th>
             <th>Price</th>
-            <th>Edit</th>
-            <th>Delete</th>
-            <th> <a class="btn btn-success" href="/insert" role="button">Insert</a></th>
+            <th><a class="btn btn-success" href="/insert" role="button">Insert</a></th>
         </tr>
     </thead>
     <tbody id="myTable">
@@ -22,9 +20,6 @@
             <td><%= product.price %></td>
             <td>
             <a class="btn btn-warning" href="/products/<%= product.id%>" role="button">Edit</a>
-            </td>
-            <td>
-            <a class="btn btn-danger" href="/product_delete/<%=product.id %>" onclick="return confirm('Are You Sure you want to Delete ? Please Confirm this')" role="button">Delete</a>
             </td>
         </tr>
         <% }); %>
